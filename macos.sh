@@ -65,9 +65,6 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Disable auto-correct
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# Disable Chrome's back/forward navigation
-defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool FALSE
-
 # --------------–-------–--------–--------–-------–--–-----
 # Screen
 # --------------–-------–--------–--------–-------–--–-----
