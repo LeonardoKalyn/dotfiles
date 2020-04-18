@@ -15,7 +15,7 @@ $ sudo softwareupdate -i -r
 **2.** Get this project somehow and go to its directory.
 
 ```sh
-git clone git@github.com:iagodahlem/dotfiles.git ~/.dotfiles
+git clone git@github.com:/LeonardoKalyn/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ```
 
