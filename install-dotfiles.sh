@@ -51,14 +51,6 @@ ln -s "$DOTS/tmux/.tmux.conf" ~/.tmux.conf
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s "$DOTS/vim/.vimrc" ~/.vimrc
 
-echo "→ Installing asdf..."
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.1
-asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
-asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
-asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
-echo "→ Configure asdf..."
-ln -s "$DOTS/asdf/.tool-versions" ~/.tool-versions
-
 # Set macOS defaults
 echo "→ Set macOS defaults... (It'll shut down Terminal!)"
 sh macos.sh
