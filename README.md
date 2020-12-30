@@ -22,22 +22,13 @@ cd ~/.dotfiles
 **3.** Install Mac applications (see [caskfile](brew/caskfile)) and fonts (see [fontfile](brew/fontfile)).
 
 ```sh
-$ sh ./install-apps
+$ sh ./install-apps.sh
 ```
 
 **4.** Install dotfiles (see [brewfile](brew/brewfile)).
 
 ```sh
-$ sh ./install-dotfiles
-```
-
-**5.** Tell [npm](https://www.npmjs.com/) who you are.
-
-```sh
-$ npm set init.author.name "{Your name}"
-$ npm set init.author.email "{Your email}"
-$ npm set init.author.url "{Your URL}"
-$ npm adduser
+$ sh ./install-dotfiles.sh
 ```
 
 ## Thanks
