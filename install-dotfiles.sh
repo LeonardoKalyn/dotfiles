@@ -41,8 +41,7 @@ ln -s "$DOTS/vscode/keybindings.json" "$VSCODE_CONFIG/keybindings.json"
 ln -s "$DOTS/vscode/settings.json" "$VSCODE_CONFIG/settings.json"
 
 echo "→ Installing n (Node Version Management)..."
-curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
-bash n lts
+curl -L https://git.io/n-install | bash
 echo "→ Installing npm packages..."
 npm install -g $(cat nmp/globals|grep -v "#")
 
