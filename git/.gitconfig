@@ -1,13 +1,12 @@
 [user]
-  name = Iago Dahlem Lorensini
-  email = iagodahlemlorensini@gmail.com
+  name = Leonardo Kalyn
+  email = leonardo.kalyn@gmail.com
   editor = code
 [github]
-  user = iagodahlem
+  user = LeonardoKalyn
 [core]
-  editor = vim
+  editor = code
   excludesfile = ~/.gitignore_global
-  pager = diff-so-fancy | less --tabs=4
 [commit]
   template = ~/.gitmessage
 [alias]

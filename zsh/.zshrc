@@ -2,18 +2,20 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # ZSH configuration
-ZSH_THEME="dracula"
+ZSH_THEME="spaceship"
 ZSH_CUSTOM="$HOME/.custom"
 
 plugins=(
   docker                    # docker autocompletion
-  gem                       # gem autocompletion
   gitfast                   # git faster autocompletion
   npm                       # npm autocompletion
-  tmux                      # tmux behavior and aliases
   yarn                      # yarn autocompletion
-  z                         # `z` navigator
   zsh-syntax-highlighting   # syntax highlighting for zsh
+  brew
+  git
+  github
+  colorize
+  osx
 )
 
 # config
@@ -24,4 +26,3 @@ export DOTFILES_GIT="$DOTFILES/git"
 
 # files
 source $ZSH/oh-my-zsh.sh
-source $DOTFILES_ZSH/.bootstrap

@@ -24,15 +24,15 @@ ln -s "$DOTS/git/.gitignore_global" ~/.gitignore_global
 ln -s "$DOTS/git/.gitmessage" ~/.gitmessage
 
 echo "→ Configuring ZSH..."
-echo '/usr/local/bin/zsh' | sudo tee -a /etc/shells > /dev/null
-chsh -s /usr/local/bin/zsh
+echo '/bin/zsh' | sudo tee -a /etc/shells > /dev/null
+chsh -s /bin/zsh
 ln -s "$DOTS/zsh/.zshrc" ~/.zshrc
 
 echo "→ Installing Oh My ZSH and custom plugins..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 mkdir -p ~/.custom/plugins ~/.custom/themes
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.custom/plugins/zsh-syntax-highlighting
-wget https://raw.githubusercontent.com/dracula/zsh/master/dracula.zsh-theme -O ~/.custom/themes/dracula.zsh-theme
+git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.custom/themes/spaceship-prompt --depth=1
 
 echo "→ Configuring VSCode..."
 rm -rf "$VSCODE_CONFIG/{keybindings.json,settings.json}"
@@ -40,16 +40,11 @@ ln -s "$DOTS/vscode/snippets" "$VSCODE_CONFIG/snippets"
 ln -s "$DOTS/vscode/keybindings.json" "$VSCODE_CONFIG/keybindings.json"
 ln -s "$DOTS/vscode/settings.json" "$VSCODE_CONFIG/settings.json"
 
-echo "→ Installing nvm..."
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
-nvm install node
+echo "→ Installing n (Node Version Management)..."
+curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
+bash n lts
 echo "→ Installing npm packages..."
 npm install -g $(cat nmp/globals|grep -v "#")
-
-echo "→ Configure Tmux and VIM..."
-ln -s "$DOTS/tmux/.tmux.conf" ~/.tmux.conf
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ln -s "$DOTS/vim/.vimrc" ~/.vimrc
 
 # Set macOS defaults
 echo "→ Set macOS defaults... (It'll shut down Terminal!)"

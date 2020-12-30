@@ -95,15 +95,15 @@
     "zprofile": "shellscript",
     "zsh": "shellscript",
     "zshenv": "shellscript",
-    "zshrc": "shellscript",
+    "zshrc": "shellscript"
   },
 
   "javascript.updateImportsOnFileMove.enabled": "never",
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   "telemetry.enableCrashReporter": false,
@@ -139,5 +139,5 @@
   },
   "emmet.syntaxProfiles": {
     "javascript": "jsx"
-  },
+  }
 }

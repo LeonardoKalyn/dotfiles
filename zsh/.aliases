@@ -31,14 +31,12 @@ alias rm='nocorrect rm'
 # general commands
 alias top="htop"
 
-# hosts
-alias hosts="sudo $SUBL /etc/hosts"
-
 # zsh & oh-my-zsh
 alias reload=". $HOME/.zshrc"
 alias r="reload"
 alias zsh="$EDITOR $HOME/.zshrc"
 alias ohmyzsh="$EDITOR $HOME/.oh-my-zsh"
+alias zshconfig="code ~/.zshrc"
 
 # node / npm
 alias install-global-packages="npm install -g $(cat $DOTFILES/npm/globals | grep -v '#')"
@@ -50,3 +48,10 @@ alias dcc="docker-compose"
 # bundle
 alias bi="bundle install"
 alias bx="bundle exec"
+
+# git
+alias gda="git branch | grep -v -E 'master' | xargs git branch -D"
+alias gfc="git fetch && git checkout"
+
+# ssh
+alias getssh="pbcopy < ~/.ssh/id_rsa.pub"

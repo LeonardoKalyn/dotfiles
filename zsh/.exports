@@ -12,36 +12,14 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
 # editors
-export SUBL='subl'
 export CODE='code'
 export VIM='vim'
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR=$VIM
-else
-  export EDITOR=$CODE
-fi
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-
-# asdf
-export ASDF_DIR="$HOME/.asdf"
-
-# ssh
-export SSH_KEY_PATH="$HOME/.ssh/dsa_id"
-
-# golang
-export GOPATH="$HOME/go"
+export EDITOR=$CODE
 
 # path
 export PATH=/usr/local/bin
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/usr/bin
-export PATH=$PATH:/sbin
 export PATH=$PATH:/bin
-export PATH=$PATH:/usr/games
-export PATH=$PATH:/usr/local/games
 export PATH=$PATH:$HOME/.rbenv/bin
 export PATH=~/bin:$PATH
