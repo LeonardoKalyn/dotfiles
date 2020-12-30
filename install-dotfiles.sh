@@ -33,6 +33,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 mkdir -p ~/.custom/plugins ~/.custom/themes
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.custom/themes/spaceship-prompt --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 echo "→ Configuring VSCode..."
 rm -rf "$VSCODE_CONFIG/{keybindings.json,settings.json}"
@@ -43,7 +44,7 @@ ln -s "$DOTS/vscode/settings.json" "$VSCODE_CONFIG/settings.json"
 echo "→ Installing n (Node Version Management)..."
 curl -L https://git.io/n-install | bash
 echo "→ Installing npm packages..."
-npm install -g $(cat nmp/globals|grep -v "#")
+npm install -g $(cat npm/globals|grep -v "#")
 
 # Set macOS defaults
 echo "→ Set macOS defaults... (It'll shut down Terminal!)"
