@@ -28,22 +28,15 @@ defaults write com.apple.CrashReporter DialogType -string "none"
 # Restart automatically if the computer freezes
 sudo systemsetup -setrestartfreeze on
 
+# Disable .dsStore
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
 # --------------–-------–--------–--------–-------–--–-----
 # SSD-specific tweaks
 # --------------–-------–--------–--------–-------–--–-----
 
-# Disable local Time Machine snapshots
-sudo tmutil disablelocal
-
 # Disable hibernation (speeds up entering sleep mode)
 sudo pmset -a hibernatemode 0
-
-# Remove the sleep image file to save disk space
-sudo rm /private/var/vm/sleepimage
-# Create a zero-byte file instead…
-sudo touch /private/var/vm/sleepimage
-# …and make sure it can't be rewritten
-sudo chflags uchg /private/var/vm/sleepimage
 
 # Disable the sudden motion sensor as it's not useful for SSDs
 sudo pmset -a sms 0
@@ -62,9 +55,6 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable smart dashes as they're annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
-# Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
 # --------------–-------–--------–--------–-------–--–-----
 # Screen
 # --------------–-------–--------–--------–-------–--–-----
@@ -80,8 +70,8 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 mkdir ~/Documents/Screenshots
 defaults write com.apple.screencapture location ~/Documents/Screenshots
 
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string "png"
+# Save screenshots in JPG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "jpg"
 
 # --------------–-------–--------–--------–-------–--–-----
 # Dock, Dashboard and Menu Bar
@@ -89,6 +79,14 @@ defaults write com.apple.screencapture type -string "png"
 
 # Minimize windows into their application's icon
 defaults write com.apple.dock minimize-to-application -bool true
+
+# Set icon size
+defaults write com.apple.dock tilesize -int 36
+
+# Set dock to autohide
+defaults write com.apple.dock autohide -bool true
+
+
 
 # --------------–-------–--------–--------–-------–--–-----
 # Finder
