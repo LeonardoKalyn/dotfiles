@@ -16,6 +16,6 @@ brew install $(cat brew/caskfile|grep -v "#")
 
 echo "→ Installing fonts..."
 # Set up Caskroom-fonts
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 # Install all fonts listed in the fontfile
-brew install $(cat brew/fontfile|grep -v "#")
+brew install --cask $(cat brew/fontfile|grep -v "#")
