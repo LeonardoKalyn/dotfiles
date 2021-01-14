@@ -32,6 +32,7 @@ source $ZSH/oh-my-zsh.sh
 # zsh & oh-my-zsh
 alias reload=". $HOME/.zshrc"
 alias r="reload"
+alias zshconfig="code ~/.zshrc"
 
 # docker
 alias dc="docker"
@@ -48,4 +49,4 @@ alias downloads="cd $DOWNLOADS"
 alias dots="cd $DOTFILES"
 
 #  create-react-app
-alias cra="create-react-app"
+alias cra="npx create-react-app"
