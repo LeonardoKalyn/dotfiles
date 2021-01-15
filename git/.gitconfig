@@ -5,7 +5,7 @@
 [github]
   user = LeonardoKalyn
 [core]
-  editor = code
+	editor = code --wait
   excludesfile = ~/.gitignore_global
 [commit]
   template = ~/.gitmessage
