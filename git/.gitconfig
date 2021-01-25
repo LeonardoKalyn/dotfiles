@@ -115,4 +115,4 @@
   deleted = red bold
   untracked = yellow bold
 [push]
-  default = simple
+	default = current
