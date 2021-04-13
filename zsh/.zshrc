@@ -50,3 +50,6 @@ alias dots="cd $DOTFILES"
 
 #  create-react-app
 alias cra="npx create-react-app"
+
+# SSH Key
+alias getssh="pbcopy < ~/.ssh/id_rsa.pub"
