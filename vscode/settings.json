@@ -107,14 +107,13 @@
   },
 
   "window.title": "${dirty} ${activeEditorMedium}${separator}${rootName}",
-  "window.zoomLevel": 0,
 
   "workbench.activityBar.visible": true,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
   "workbench.startupEditor": "none",
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "One Dark Pro (Italic)",
+  "workbench.colorTheme": "One Dark",
   "workbench.preferredDarkColorTheme": "One Dark Pro (Italic)",
   "workbench.colorCustomizations" : {
     "terminal.ansiBrightMagenta": "#9966ff"
@@ -168,5 +167,9 @@
         }
       }
     ]
-  }
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.formatOnSave": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single"
 }
