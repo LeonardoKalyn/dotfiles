@@ -23,7 +23,7 @@ plugins=(
   git
   github
   colorize
-  osx
+  macos
 )
 
 # files
