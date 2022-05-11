@@ -39,7 +39,7 @@ alias dc="docker"
 alias dcc="docker-compose"
 
 # git
-alias gda="git branch | grep -v -E 'master' | xargs git branch -D"
+alias gda="git branch | grep -v -E 'master|dev|main|develop' | xargs git branch -D"
 alias gfc="git fetch && git checkout"
 
 # directories
