@@ -115,4 +115,5 @@
   deleted = red bold
   untracked = yellow bold
 [push]
-	default = current
+  default = current
+  autosetupremote = true
