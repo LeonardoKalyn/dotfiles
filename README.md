@@ -33,8 +33,8 @@ $ sh ./install-dotfiles.sh
 
 **5.** For git
 ```sh
-$ push.default=current
-$ push.autosetupremote=true
+git config --global --add push.default current
+git config --global --add push.autoSetupRemote true
 ```
 
 ## Thanks
