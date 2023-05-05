@@ -8,9 +8,12 @@ export DOTFILES="$HOME/.dotfiles"
 export DOTFILES_BIN="$DOTFILES/bin"
 export DOTFILES_ZSH="$DOTFILES/zsh"
 export DOTFILES_GIT="$DOTFILES/git"
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # ZSH configuration
-ZSH_THEME="spaceship"
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 ZSH_CUSTOM="$HOME/.custom"
 
 plugins=(

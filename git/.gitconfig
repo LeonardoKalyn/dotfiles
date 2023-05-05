@@ -117,3 +117,5 @@
 [push]
   default = current
   autosetupremote = true
+	default = current
+	autoSetupRemote = true
