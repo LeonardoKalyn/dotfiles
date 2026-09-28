@@ -2,6 +2,7 @@
   name = Leonardo Kalyn
   email = leonardo.kalyn@gmail.com
   editor = code
+	signingkey = 7A82C06C1F8BFEC4150576C9B5B8AF9A4CB1F50A
 [github]
   user = LeonardoKalyn
 [core]
@@ -9,6 +10,7 @@
   excludesfile = ~/.gitignore_global
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [alias]
   # add
   ad = add
@@ -119,3 +121,9 @@
   autosetupremote = true
 	default = current
 	autoSetupRemote = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
