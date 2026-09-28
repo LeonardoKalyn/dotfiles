@@ -118,9 +118,7 @@
   untracked = yellow bold
 [push]
   default = current
-  autosetupremote = true
-	default = current
-	autoSetupRemote = true
+  autoSetupRemote = true
 [credential "https://github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
