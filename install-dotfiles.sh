@@ -6,46 +6,58 @@ readonly VSCODE_CONFIG="$HOME/Library/Application Support/Code/User"
 # Ask for the administrator password upfront
 sudo -v
 
+echo "→ Installing Xcode Command Line Tools..."
+xcode-select --install 2>/dev/null || true
+
 # Install Homebrew
-if test ! $(which brew)
+if ! command -v brew >/dev/null
 then
   echo " → Installing Homebrew for package management..."
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
-brew upgrade
 
-echo "→ Installing packages using Homebrew..."
-brew install $(cat brew/brewfile|grep -v "#")
+echo "→ Installing packages, applications and fonts using Homebrew..."
+brew bundle --file="$DOTS/Brewfile"
 
 echo "→ Configuring Git..."
-ln -s "$DOTS/git/.gitconfig" ~/.gitconfig
-ln -s "$DOTS/git/.gitignore_global" ~/.gitignore_global
-ln -s "$DOTS/git/.gitmessage" ~/.gitmessage
+ln -sfn "$DOTS/git/.gitconfig" ~/.gitconfig
+ln -sfn "$DOTS/git/.gitignore_global" ~/.gitignore_global
+ln -sfn "$DOTS/git/.gitmessage" ~/.gitmessage
 
-echo "→ Configuring ZSH..."
-echo '/bin/zsh' | sudo tee -a /etc/shells > /dev/null
-chsh -s /bin/zsh
-ln -s "$DOTS/zsh/.zshrc" ~/.zshrc
+echo "→ Configuring GPG..."
+mkdir -p ~/.gnupg
+echo "pinentry-program $(brew --prefix)/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
 
 echo "→ Installing Oh My ZSH and custom plugins..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-mkdir -p ~/.custom/plugins ~/.custom/themes
+KEEP_ZSHRC=yes RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+mkdir -p ~/.custom/plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/denysdovhan/spaceship-prompt.git ~/.custom/themes/spaceship-prompt --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+echo "→ Configuring ZSH..."
+ln -sfn "$DOTS/zsh/.zshrc" ~/.zshrc
+ln -sfn "$DOTS/zsh/.zprofile" ~/.zprofile
+
+echo "→ Installing language versions with mise..."
+mkdir -p ~/.config/mise
+ln -sfn "$DOTS/mise/config.toml" ~/.config/mise/config.toml
+mise install
+
+echo "→ Installing npm packages..."
+mise exec -- corepack enable
+grep -v "#" "$DOTS/npm/globals" | xargs mise exec -- npm install -g
+
+echo "→ Installing GitHub CLI extensions..."
+gh extension install drogers0/gh-image
 
 echo "→ Configuring VSCode..."
-rm -rf "$VSCODE_CONFIG/{keybindings.json,settings.json}"
+mkdir -p "$VSCODE_CONFIG"
+rm -rf "$VSCODE_CONFIG/snippets" "$VSCODE_CONFIG/keybindings.json" "$VSCODE_CONFIG/settings.json"
 ln -s "$DOTS/vscode/snippets" "$VSCODE_CONFIG/snippets"
 ln -s "$DOTS/vscode/keybindings.json" "$VSCODE_CONFIG/keybindings.json"
 ln -s "$DOTS/vscode/settings.json" "$VSCODE_CONFIG/settings.json"
 
-echo "→ Installing n (Node Version Management)..."
-curl -L https://git.io/n-install | bash
-echo "→ Installing npm packages..."
-npm install -g $(cat npm/globals|grep -v "#")
-
 # Set macOS defaults
 echo "→ Set macOS defaults... (It'll shut down Terminal!)"
-sh macos.sh
+sh "$DOTS/macos.sh"
